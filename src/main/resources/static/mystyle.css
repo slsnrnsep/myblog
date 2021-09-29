@@ -1,0 +1,156 @@
+body {
+    /*background-color: RGBA(232, 52, 78, 0.2);*/
+    background-color: orange;
+    min-height: 100vh;
+}
+
+.section {
+    padding: 1rem 1.5rem;
+    max-width: 750px;
+    margin: auto;
+}
+
+.is-sparta {
+    /*color: #e8344e !important;*/
+    color: #6f2205 !important;
+}
+
+.button.is-sparta {
+    background-color: #e8344e;
+    border-color: transparent;
+    color: #fff !important;
+}
+
+.button.is-sparta.is-outlined {
+    background-color: transparent;
+    border-color: #e8344e;
+    color: #e8344e !important;
+}
+
+.modal-content {
+    width: 600px;
+    max-width: 80%;
+}
+
+input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+.image img {
+    object-fit:cover;
+    width:100%;
+    height:100%;
+}
+
+.box
+{
+    background-color: #ffffff;
+    background-color: rgba( 255, 255, 255, 0.8 );
+}
+
+#post-box {
+    /*background-color : black;*/
+    margin-bottom: 20px;
+}
+
+.is-large
+{
+    color: white;
+    background-color: #e9d3c0;
+    border-radius: 10px;
+    border-color: #e9d3c0;
+    width: 702px;
+    display: block;
+    margin: 20px auto auto auto;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10);
+}
+
+#btn-gathering-detail
+{
+    width: 650.18px;
+    background-color: #e9d3c0;
+    border-color: #78514c;
+    color: black;
+    font-family: 'Sunflower', sans-serif;
+}
+
+#navbar
+{
+    background-color: #e9d3c0;
+}
+
+body
+{
+    background-image: url('https://mblogthumb-phinf.pstatic.net/MjAxOTA0MTNfMTg4/MDAxNTU1MTY2NDg0NjAw.8r_d0_8q0w6siJ_csHcQ5x38YNzRyRgeEpdfse8eJpwg.zA8cugervWmCYhqw6RiCyGDcjNeY1V5yhGg5dxobTNIg.JPEG.lllllkk12/%25EC%259A%25B0%25EB%2593%259C%25EC%258A%25A4%25ED%2583%2581_%25EA%25BC%25AC%25EB%25A7%2589_%25EA%25B8%25B0%25EB%25B3%25B8.jpg?type=w800');
+    background-position: center;
+    background-size: cover;
+    /*height: 100vh;*/
+}
+
+
+
+#login-box
+{
+    margin: 300px auto auto auto;
+}
+
+#btn-modal-gathering
+{
+    background-color: #e9d3c0;
+    border-color: #78514c;
+    color: black;
+    font-family: 'Sunflower', sans-serif;
+}
+
+#btn-cancel
+{
+    color: black;
+    background-color: #e9d3c0;
+    border-color: #78514c;
+    font-family: 'Sunflower', sans-serif;
+}
+
+#btn-login
+{
+    background-color: #78514c;
+    color: white;
+    font-family: 'Sunflower', sans-serif;
+}
+
+#btn-register
+{
+    color: black;
+    border-color: #e9d3c0;
+    font-family: 'Sunflower', sans-serif;
+}
+
+#btn-register-register
+{
+    background-color: #78514c;
+    color: white;
+    font-family: 'Sunflower', sans-serif;
+}
+
+#btn-create-gathering
+{
+    color: white;
+    background-color: #78514c;
+    border-color: #78514c;
+    font-family: 'Sunflower', sans-serif;
+}
+
+#btn-register-cancel
+{
+    border-color: #78514c;
+    font-family: 'Sunflower', sans-serif;
+}
+
+#btn-navbar
+{
+    margin-top: 6px;
+    height: 51.99px;
+    background-color: transparent;
+    color: #78514c;
+    font-weight: bold;
+    font-family: 'Sunflower', sans-serif;
+}

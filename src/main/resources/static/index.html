@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://src.wizad.co.kr/wizbbs/data/shopimg/A1517563048279_naverblog-logo.png" type="image/x-icon">
+    <link rel="icon" href="https://src.wizad.co.kr/wizbbs/data/shopimg/A1517563048279_naverblog-logo.png" type="image/x-icon">
+
+    <!-- og:properties -->
+    <meta property="og:title" content="나만의 항해 블로그"/>
+    <meta property="og:description" content="게시글을 쓰고 기록하세요!"/>
+    <meta property="og:image" content="https://src.wizad.co.kr/wizbbs/data/shopimg/A1517563048279_naverblog-logo.png"/>
+
+    <!-- Webpage Title -->
+    <title>정영호의 blog</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+    <!-- Font Awesome CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Stylish&display=swap" rel="stylesheet">
+    <link href="mystyle.css" rel="stylesheet">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <script src="basic.js"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300&family=Sunflower:wght@500&display=swap"
+          rel="stylesheet">
+</head>
+
+<body class="has-navbar-fixed-top">
+<!--화면 상단 네비게이션 바-->
+<nav class="navbar is-fixed-top is-white" id="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">
+            <img src="https://src.wizad.co.kr/wizbbs/data/shopimg/A1517563048279_naverblog-logo.png">
+            <strong class="is-sparta"style="font-family: 'Stylish', sans-serif;font-size: larger;">&nbsp;정영호 블로그</strong>
+        </a>
+    </div>
+    <div id="btns-navbar">
+        <button class="button is-success is-inverted" id="btn-navbar" onclick=getMessages()>
+            전체게시글조회
+        </button>
+        <button class="button is-success is-inverted" id="btn-navbar" onclick='$("#modal-post").addClass("is-active")'>
+            게시글 작성
+        </button>
+    </div>
+</nav>
+
+<!--본문 상단 버튼-->
+<button class="button is-large" id="btn-create-gathering" onclick='$("#modal-post").addClass("is-active")'>블로그 글 작성
+</button>
+
+<!--본문 카드 리스트-->
+<section class="section" id="post_box2">
+    <!--본문 카드 그리기-->
+    <!--자세히보기 클릭 시 열리는 모달 카드 그리기-->
+</section>
+<div class="modal" id="modal-post">
+    <div class="modal-background" onclick='$("#modal-post").removeClass("is-active")'></div>
+    <div class="modal-content">
+        <div class="box">
+            <article class="media">
+                <div class="media-content">
+                    <!--모임 생성 입력필드-->
+                    <div class="field">
+                        <div id="gathering_create_box">
+                            <div>제목<input class="input is-small" type="text" id="title" placeholder="제목을 입력하세요."></div>
+                            <br>
+                            <div>작성자명 <input class="input is-small" type="text" id="username"></div>
+                            <br>
+                            <div>내용 <textarea class="textarea is-small" placeholder="내용을 입력하세요." rows="10" id="agenda"></textarea></div>
+                            <br>
+                        </div>
+                    </div>
+                    <!--모임 생성 푸터-->
+                    <nav class="level is-mobile">
+                        <div class="level-item">
+                            <button class="button is-success" id="btn-modal-gathering" onclick="writePost()">
+                                저장
+                            </button>
+                        </div>
+                        <div class="level-item">
+                            <button class="button" id="btn-cancel"
+                                    onclick='$("#modal-post").removeClass("is-active")'>취소
+                            </button>
+                        </div>
+                    </nav>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+</body>
+</html>
