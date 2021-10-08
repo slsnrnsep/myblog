@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://src.wizad.co.kr/wizbbs/data/shopimg/A1517563048279_naverblog-logo.png" type="image/x-icon">
+    <link rel="icon" href="https://src.wizad.co.kr/wizbbs/data/shopimg/A1517563048279_naverblog-logo.png" type="image/x-icon">
+
+    <!-- og:properties -->
+    <meta property="og:title" content="나만의 항해 블로그"/>
+    <meta property="og:description" content="게시글을 쓰고 기록하세요!"/>
+    <meta property="og:image" content="https://src.wizad.co.kr/wizbbs/data/shopimg/A1517563048279_naverblog-logo.png"/>
+
+    <!-- Webpage Title -->
+    <title>정영호의 blog</title>
+
+
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- Font Awesome CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/basic.js"></script>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<script>
+    $(document).ready(function () {
+    usercheck();
+})
+
+function usercheck() {
+    $.ajax({
+        type: "GET",
+        url: "/api/usercheck",
+        success: function (response) {
+            let usercheck = response;
+            if (usercheck == ""){
+                alert('로그인이 필요합니다>_<')
+                window.location.replace("/user/login")
+            }
+        }
+    });
+}
+</script>
+<body>
+<!--  상단바 끝  -->
+
+<section class="main-contents">
+    <div class="box">
+        <div class="post">
+            <div class="post-item">
+                <button class="button is-success" id="postbutton" onclick="save_post()">저장</button>
+                <button class="button" onclick="home()">취소</button>
+            </div>
+            <div class="control post-item">
+                제목<input class="input" type="text" placeholder="제목" id="title">
+            </div>
+<!--            <div class="control post-item">-->
+<!--                작성자명<input class="input" type="text" placeholder="작성자명" id="username">-->
+<!--            </div>-->
+            본문<textarea class="textarea" placeholder="내용" rows="10" id="agenda"></textarea>
+        </div>
+    </div>
+</section>
+</body>
+
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+<!--            <strong>Blog</strong> by <a href="https://github.com/slsnrnsep">https://github.com/slsnrnsep</a>.-->
+        </p>
+    </div>
+</footer>
+</html>
