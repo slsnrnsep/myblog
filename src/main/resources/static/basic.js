@@ -12,6 +12,9 @@ function isValidContents(contents) {
     return true;
 }
 
+function postForm() {
+    window.location.href="/post-form";
+}
 // 익명의 username을 만듭니다.
 function genRandomName(length) {
     let result = '';
@@ -77,7 +80,8 @@ function getMessages() {
 function addHTML(id, username, contents, title, modifiedAt,createdAt) {
     // 1. HTML 태그를 만듭니다.
 
-    let tempHtml = `<div id="post-box" class="container">
+    let tempHtml = `<a href="detail.html?id=${id}">
+<div id="post-box" class="container">
         <div class="box">
             <article class="media">
                 <div class="media-left">
@@ -93,95 +97,95 @@ function addHTML(id, username, contents, title, modifiedAt,createdAt) {
                             Username : ${username}
                             </small>
                         </p>
-                    </div>
-                    <nav class="level is-mobile">
-                        <button class="button is-link" id="btn-gathering-detail"
-                                onclick='$("#modal-gathering${id}").addClass("is-active")'>자세히 보기
-                        </button>
-                    </nav>
-                </div>
-            </article>
-        </div>
-    </div>
-          <div class="modal" id="modal-gathering${id}">
-                <div class="modal-background"
-                     onclick='$("#modal-gathering${id}").removeClass("is-active")'>
-                </div>
-
-                <!--모달 본문-->
-                <div class="modal-card">
-                    <header class="modal-card-head">
-                        <p class="modal-card-title">${title}</p>
-                        <button class="delete" aria-label="close"
-                                onclick='$("#modal-gathering${id}").removeClass("is-active")'>
-                        </button>
-                    </header>
-                    <section class="modal-card-body">
-                        <div class="content">
-                            <p>${contents}</p>
-                            <br>
-                            <br>
-                            
-                        작성자명 : ${username}
-                        <br>
-                        작성날짜 : ${modifiedAt}
-                        
-                        </div>
-                    </section>
-                    <!--모달 푸터-->
-                    <footer class="modal-card-foot">
-                        <!--로그인 한 계정과 게시글 생성 계정 일치 여부에 따라 분기-->
-                            <button class="button is-success" id="btn-modal-gathering"
-                                    onclick='$("#modal-gathering_update${id}").addClass("is-active")'>수정
-                            </button>
-                            <button class="button is-success" id="btn-modal-gathering"
-                                    onclick="deleteOne(${id})">
-                                삭제
-                            </button>
-                        <button class="button" id="btn-cancel"
-                                onclick='$("#modal-gathering${id}").removeClass("is-active")'>
-                            돌아가기
-                        </button>
-                    </footer>
-                </div>
-            </div>
-  <div class="modal" id="modal-gathering_update${id}">
-            <div class="modal-background"
-                 onclick='$("#modal-gathering_update${id}").removeClass("is-active")'></div>
-            <div class="modal-card">
-                <!--모임카드 수정 상단-->
-                <header class="modal-card-head">
-                    <p class="modal-card-title" id="title_rev${id}">${title}</p>
-                    <button class="delete" aria-label="close"
-                            onclick='$("#modal-gathering_update${id}").removeClass("is-active")'></button>
-                </header>
-                <!--모임카드 수정 입력필드-->
-                <section class="modal-card-body">
-                    <div class="content" id="modal-gathering_update${id}">
-                            <div>제목<input class="input is-small" type="text" id="title_edit" placeholder="${title}"></div>
-                            <br>
-                            <div>작성자명<input class="input is-small" type="text" id="username_edit" placeholder="${username}"></div>
-                            <br>
-                            <div>설명 <textarea class="textarea is-small" placeholder="${contents}" rows="10" id="contents_edit"></textarea></div>
-                    </div>
-                </section>
-                <!--모임카드 수정 푸터-->
-                <footer class="modal-card-foot">
-                        <button class="button is-success" id="btn-modal-gathering"
-                            onclick="submitEdit(${id})">저장
-                        </button>
-
-                    <button class="button" id="btn-cancel"
-                            onclick='$("#modal-gathering_update${id}").removeClass("is-active")'>
-                        돌아가기
-                    </button>
-                </footer>
-            </div>
-        </div>`;
+                        </a>
+                    </div>`;
     // 2. #cards-box 에 HTML을 붙인다.
     $('#post_box2').append(tempHtml);
 }
-
+//                   <nav class="level is-mobile">
+//                       <button class="button is-link" id="btn-gathering-detail"
+//                               onclick='$("#modal-gathering${id}").addClass("is-active")'>자세히 보기
+//                       </button>
+//                   </nav>
+//               </div>
+//           </article>
+//       </div>
+//   </div>
+//         <div class="modal" id="modal-gathering${id}">
+//               <div class="modal-background"
+//                    onclick='$("#modal-gathering${id}").removeClass("is-active")'>
+//               </div>
+//
+//               <!--모달 본문-->
+//               <div class="modal-card">
+//                   <header class="modal-card-head">
+//                       <p class="modal-card-title">${title}</p>
+//                       <button class="delete" aria-label="close"
+//                               onclick='$("#modal-gathering${id}").removeClass("is-active")'>
+//                       </button>
+//                   </header>
+//                   <section class="modal-card-body">
+//                       <div class="content">
+//                           <p>${contents}</p>
+//                           <br>
+//                           <br>
+//
+//                       작성자명 : ${username}
+//                       <br>
+//                       작성날짜 : ${modifiedAt}
+//
+//                       </div>
+//                   </section>
+//                   <!--모달 푸터-->
+//                   <footer class="modal-card-foot">
+//                       <!--로그인 한 계정과 게시글 생성 계정 일치 여부에 따라 분기-->
+//                           <button class="button is-success" id="btn-modal-gathering"
+//                                   onclick='$("#modal-gathering_update${id}").addClass("is-active")'>수정
+//                           </button>
+//                           <button class="button is-success" id="btn-modal-gathering"
+//                                   onclick="deleteOne(${id})">
+//                               삭제
+//                           </button>
+//                       <button class="button" id="btn-cancel"
+//                               onclick='$("#modal-gathering${id}").removeClass("is-active")'>
+//                           돌아가기
+//                       </button>
+//                   </footer>
+//               </div>
+//           </div>
+// <div class="modal" id="modal-gathering_update${id}">
+//           <div class="modal-background"
+//                onclick='$("#modal-gathering_update${id}").removeClass("is-active")'></div>
+//           <div class="modal-card">
+//               <!--모임카드 수정 상단-->
+//               <header class="modal-card-head">
+//                   <p class="modal-card-title" id="title_rev${id}">${title}</p>
+//                   <button class="delete" aria-label="close"
+//                           onclick='$("#modal-gathering_update${id}").removeClass("is-active")'></button>
+//               </header>
+//               <!--모임카드 수정 입력필드-->
+//               <section class="modal-card-body">
+//                   <div class="content" id="modal-gathering_update${id}">
+//                           <div>제목<input class="input is-small" type="text" id="title_edit" placeholder="${title}"></div>
+//                           <br>
+//                           <div>작성자명<input class="input is-small" type="text" id="username_edit" placeholder="${username}"></div>
+//                           <br>
+//                           <div>설명 <textarea class="textarea is-small" placeholder="${contents}" rows="10" id="contents_edit"></textarea></div>
+//                   </div>
+//               </section>
+//               <!--모임카드 수정 푸터-->
+//               <footer class="modal-card-foot">
+//                       <button class="button is-success" id="btn-modal-gathering"
+//                           onclick="submitEdit(${id})">저장
+//                       </button>
+//
+//                   <button class="button" id="btn-cancel"
+//                           onclick='$("#modal-gathering_update${id}").removeClass("is-active")'>
+//                       돌아가기
+//                   </button>
+//               </footer>
+//           </div>
+//       </div>
 // 메모를 생성합니다.
 function writePost() {
     // 1. 작성한 메모를 불러옵니다.
@@ -208,6 +212,34 @@ function writePost() {
             window.location.reload();
         }
     });
+}
+
+function save_post() {
+    let title = $('#title').val();
+    let contents = $('#agenda').val();
+    if (title === '') {
+        alert("제목을 입력하세요.")
+        return;
+    }
+    if (contents === '') {
+        alert("내용을 입력하세요.")
+        return;
+    }
+
+    //게시글 생성 요청
+    $.ajax({
+        type: 'POST',
+        url: '/api/mylogs',
+        data: JSON.stringify({
+            'title': title,
+            'contents': contents
+        }),
+        contentType: 'application/json',
+        success: function (response) {
+            alert("저장이 완료되었습니다.")
+            window.location.replace("/")
+        }
+    })
 }
 
 // 메모를 수정합니다.

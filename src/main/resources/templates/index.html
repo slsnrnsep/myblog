@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
 
@@ -25,7 +26,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Stylish&display=swap" rel="stylesheet">
-    <link href="mystyle.css" rel="stylesheet">
+    <link href="css/mystyle.css" rel="stylesheet">
 
     <!-- JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -49,18 +50,24 @@
         </a>
     </div>
     <div id="btns-navbar">
-        <button class="button is-success is-inverted" id="btn-navbar" onclick=getMessages()>
-            전체게시글조회
-        </button>
-        <button class="button is-success is-inverted" id="btn-navbar" onclick='$("#modal-post").addClass("is-active")'>
+        <button sec:authorize="isAuthenticated()" class="button is-success is-inverted" id="btn-navbar" th:onclick="postForm()">
             게시글 작성
         </button>
+        <a sec:authorize="isAuthenticated()" class="button is-success is-inverted" id="btn-navbar" href="/user/logout">
+            로그아웃
+        </a>
+        <a sec:authorize="!isAuthenticated()" class="button is-success is-inverted" id="btn-navbar" href="/user/login">
+            로그인
+        </a>
+        <a sec:authorize="!isAuthenticated()" class="button is-success is-inverted" id="btn-navbar" href="/user/signup">
+            회원가입
+        </a>
     </div>
 </nav>
 
 <!--본문 상단 버튼-->
-<button class="button is-large" id="btn-create-gathering" onclick='$("#modal-post").addClass("is-active")'>블로그 글 작성
-</button>
+<!--<button class="button is-large" id="btn-create-gathering" onclick='$("#modal-post").addClass("is-active")'>블로그 글 작성-->
+<!--</button>-->
 
 <!--본문 카드 리스트-->
 <section class="section" id="post_box2">
